@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.footer {
+    background-color: #265ab9;
+    padding: 50px;
+}
