@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} - Documentation{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/json-viewer.css" />
+    <link rel="stylesheet" href="/static/css/documentation.css">
+{% endblock %}
+
+{% block main %}
+<div class="side-bar">
+    <h3>Contents</h3>
+    <div class="item">
+        <a href="#Information">Information</a>
+    </div>
+    <div class="item">
+        <a href="#Resource Lists/Pagination">Resource Lists/Pagination</a>
+    </div>
+</div>
+<div class="docs-container">
+    <p><strong>Quick tip:</strong> Use your browser's "find on page" feature to search for specific resource types (Ctrl+F or Cmd+F).</p>
+    <h2 id="Information">Information</h2>
+    <p>This is a consumption-only API — only the HTTP GET method is available on resources.</p>
+    <hr/>
+    <h2 id="Resource Lists/Pagination">Resource Lists/Pagination</h2>
+    <h3>Beach List</h3>
+    <p>Beach List gets all the beaches that are available</p>
+    <p class="get">GET http://localhost:5000/api/beachlist/</p>
+    <div class="JsonViewer" id="style-1" url="http://localhost:5000/api/beachlist/"></div>
+    <h4>Beach List</h4>
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+        </tr>
+        <tr>
+          <td>_id</td>
+          <td>The identifier for this resource.</td>
+          <td>Integer</td>
+        </tr>
+        <tr>
+            <td>location</td>
+            <td>The city where this resource is located.</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>The name for this resource.</td>
+            <td>String</td>
+        </tr>
+    </table>
+    <h3>Beach</h3>
+    <p>Get information about a specific beach by means of its identifier</p>
+    <p class="get">GET http://localhost:5000/api/beach/{id}/</p>
+    <div class="JsonViewer" id="style-1" url="http://localhost:5000/api/beach/5f29d6cfdb15c48b53ccc3f3/"></div>
+    <h4>Beach</h4>
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+        </tr>
+        <tr>
+          <td>_id</td>
+          <td>The identifier for this resource.</td>
+          <td>Integer</td>
+        </tr>
+        <tr>
+            <td>location</td>
+            <td>The city where this resource is located.</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>The name for this resource.</td>
+            <td>String</td>
+        </tr>
+    </table>
+</div>
+{% endblock  %}
+
+{% block scripts %}
+<script src="/static/js/json-viewer.js"></script>
+<script src="/static/js/get_viewer.js"></script>
+{% endblock  %}
+

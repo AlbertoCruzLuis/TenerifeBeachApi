@@ -1,10 +1,173 @@
-* {
-    margin: 0;
-    border: 0;
-    padding: 0;
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(51, 48, 43);
 }
 
-.footer {
-    background-color: #265ab9;
-    padding: 50px;
+img {
+    width: 100%;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.container-text > p.one {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.container-text > p.two {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.container-text > a {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    padding: 9px;
+    text-align: center;
+    width: 230px;
+    background-color: #2c61c4;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container-api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    margin: 5px;
+    padding: 1em 1em 2em;
+}
+
+.text {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    max-width: 876px;
+}
+
+.text > h2 {
+    margin: 5px;
+}
+
+form  {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 100%;
+    max-width: 876px;
+}
+
+.form > label {
+    flex: 0 0;
+    background-color: #c5c5c5;
+    border: 1px solid #a3a3a3;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.form > .txt {
+    flex: 1 1;
+    padding: 5px;
+    border-top: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
+    min-width: 8em;
+}
+
+.form > .btn {
+    padding: 5px 15px 5px 15px;
+    background-color: #2e65ca;
+    color: #ffffff;
+    border: 1px solid #a3a3a3;
+    min-width: max-content;
+    font-weight: bold;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form > .btn:hover {
+    background-color: #2051ac;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 700px) {
+
+.container-text > p.one {
+    top: 20%;
+    font-size: 20px;
+}
+
+.container-text > p.two {
+    top: 40%;
+    font-size: 20px;
+}
+
+.container-text > a {
+    top: 72%;
+    padding: 10px;
+    font-size: 14px;
+    padding: 10px;
+    width: 240px;
+}
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 920px) {
+    .container-text > p.one {
+        top: 25%;
+        font-size: 21px;
+    }
+    
+    .container-text > p.two {
+        top: 40%;
+        font-size: 21px;
+    }
+    
+    .container-text > a {
+        top: 68%;
+        font-size: 16px;
+        padding: 10px;
+        width: 280px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1400px) {
+    .container-text > p.one {
+        top: 30%;
+        font-size: 21px;
+    }
+    
+    .container-text > p.two {
+        top: 40%;
+        font-size: 21px;
+    }
+    
+    .container-text > a {
+        top: 68%;
+        font-size: 16px;
+        padding: 10px;
+        width: 280px;
+    }
 }

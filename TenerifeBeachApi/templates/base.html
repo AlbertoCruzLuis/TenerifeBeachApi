@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/base.css">
+    {% endblock %}
+    <title>{% block title %}Tenerife Beach Api{% endblock %}</title>
+</head>
+<body>
+    <header>
+    {% block header %}
+        <div class="title">
+            <h1>Tenerife Beach API</h1>
+        </div>
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="/documentation">Documentation</a>
+        </div>
+    {% endblock %}
+    </header>
+
+    <main class="content">
+    {% block main %}
+    {% endblock %}
+    </main> 
+
+    
+    <footer>
+    {% block footer %}
+        <div class="footer-container">
+            <p>@ 2020 Copyright | </p>
+            <a href="https://github.com/AlbertoCruzLuis"> Alberto Cruz Luis </a>
+            <p> | Tenerife Beach Api</p>
+        </div>
+    {% endblock %}
+    </footer>
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

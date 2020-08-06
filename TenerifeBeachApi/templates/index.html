@@ -1,14 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/json-viewer.css" />
     <link rel="stylesheet" href="/static/css/index.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="footer">
-        <h1>Tenerife Beach API</h1>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <img src="/static/img/playa_benijo.jpg">
+    <div class="container-text">
+        <p class="one">All the beaches of Tenerife,</p>
+        <p class="two">you will find in this RESTful API</p>
+        <a href="/documentation">Check out the Documentation!</a>
     </div>
-</body>
-</html>
+</div>
+<div class="container-api">
+    <h2>Try it now!</h2>
+    <form id="form" class="form" onsubmit="return false">
+        <label for="">
+            <span>https://localhost/api/</span>
+        </label>
+        <input class="txt" type="text" id="url" value="beachlist/">
+        <input class="btn" type="submit" onclick="get_data()" value="submit">
+    </form>
+    <div class="text">
+        <h2>Resource</h2>
+    </div>
+    <div class="JsonViewer" id="style-1"></div>
+</div>
+{% endblock  %}
+
+{% block scripts %}
+<script src="/static/js/json-viewer.js"></script>
+<script src="/static/js/index.js"></script>
+{% endblock  %}
