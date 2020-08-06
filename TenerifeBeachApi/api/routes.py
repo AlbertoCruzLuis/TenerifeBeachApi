@@ -8,8 +8,13 @@ from marshmallow import ValidationError
 from ..database import db
 from . import api
 from .schemas import BeachSchema
+from .Authentication import token_required, create_token
 
 beach_schema = BeachSchema()
+
+class Authentication(Resource):
+    def post(self):
+        return create_token()
 
 class BeachList(Resource):
     def get(self):
@@ -22,6 +27,7 @@ class BeachList(Resource):
             })
         return jsonify(beaches)
 
+    @token_required
     def post(self):
         try:
             beach_validated = beach_schema.load({
@@ -51,6 +57,7 @@ class Beach(Resource):
             'location' : beach_validated['location']
         })
 
+    @token_required
     def delete(self, id):
         if not ObjectId.is_valid(id):
             return {'message' : 'Error Incorrect Id'}, 400
@@ -59,6 +66,7 @@ class Beach(Resource):
             return {'message' : 'Error Incorrect Id'},400
         return jsonify({'message' : 'Beach Delete'})
 
+    @token_required
     def put(self, id):
         if not ObjectId.is_valid(id):
             return {'message' : 'Error Incorrect Id'}, 400
@@ -78,3 +86,4 @@ class Beach(Resource):
 
 api.add_resource(BeachList, '/beachlist/')
 api.add_resource(Beach, '/beach/<id>/')
+api.add_resource(Authentication, '/auth/')
