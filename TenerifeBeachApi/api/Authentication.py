@@ -2,7 +2,7 @@ import jwt
 from flask import request, jsonify
 from functools import wraps
 import datetime
-from ..config import DevelopmentConfig
+from ..config import ProductionConfig
 
 def create_token():
     if 'username' in request.authorization:
@@ -11,8 +11,8 @@ def create_token():
     if 'password' in request.authorization:
         password = request.authorization['password']
     
-    if username == DevelopmentConfig.USERNAME and password == DevelopmentConfig.PASSWORD:
-        token = jwt.encode({username:password},DevelopmentConfig.SECRET_KEY)
+    if username == ProductionConfig.USERNAME and password == ProductionConfig.PASSWORD:
+        token = jwt.encode({username:password},ProductionConfig.SECRET_KEY)
         return jsonify({'token':token.decode()})
     return jsonify({'message' : "You don't have authorization"})
 
@@ -29,7 +29,7 @@ def token_required(f):
             return jsonify({'message': "You don't have authorization"})
 
         try:
-            jwt.decode(token, DevelopmentConfig.SECRET_KEY)
+            jwt.decode(token, ProductionConfig.SECRET_KEY)
 
         except:
             return jsonify({'message': 'token is invalid'})
