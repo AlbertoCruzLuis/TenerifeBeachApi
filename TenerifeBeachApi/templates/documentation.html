@@ -2,6 +2,7 @@
 {% block title %}{{ super() }} - Documentation{% endblock %}
 {% block head %}
     {{ super() }}
+    <meta name="description" content="Tenerife Beach Api Documentation show how use the Restful Api">
     <link rel="stylesheet" href="/static/css/json-viewer.css" />
     <link rel="stylesheet" href="/static/css/documentation.css">
 {% endblock %}
@@ -24,8 +25,8 @@
     <h2 id="Resource Lists/Pagination">Resource Lists/Pagination</h2>
     <h3>Beach List</h3>
     <p>Beach List gets all the beaches that are available</p>
-    <p class="get">GET http://localhost:5000/api/beachlist/</p>
-    <div class="JsonViewer" id="style-1" url="http://localhost:5000/api/beachlist/"></div>
+    <p class="get">GET {{URL}}api/beachlist/</p>
+    <div class="JsonViewer" id="style-1" url="{{URL}}api/beachlist/"></div>
     <h4>Beach List</h4>
     <table>
         <tr>
@@ -51,8 +52,8 @@
     </table>
     <h3>Beach</h3>
     <p>Get information about a specific beach by means of its identifier</p>
-    <p class="get">GET http://localhost:5000/api/beach/{id}/</p>
-    <div class="JsonViewer" id="style-1" url="http://localhost:5000/api/beach/5f29d6cfdb15c48b53ccc3f3/"></div>
+    <p class="get">GET {{URL}}api/beach/{id}/</p>
+    <div class="JsonViewer" id="style-1" url="{{URL}}api/beach/5f3267a45a0c190bd9ffc085/"></div>
     <h4>Beach</h4>
     <table>
         <tr>

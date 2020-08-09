@@ -1,5 +1,5 @@
 from flask import Flask
-from .config import DevelopmentConfig
+from .config import ProductionConfig
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig)
+app.config.from_object(ProductionConfig)

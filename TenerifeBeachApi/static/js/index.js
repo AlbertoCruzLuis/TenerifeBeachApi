@@ -1,9 +1,9 @@
 function get_url() {
     if (document.getElementById("url").value != ""){
-        return "http://localhost:5000/api/" + document.getElementById("url").value
+        return "api/" + document.getElementById("url").value
     } else {
         document.getElementById("url").value = "beachlist/";
-        return "http://localhost:5000/api/beachlist/"
+        return "api/beachlist/"
     }
 }
 
