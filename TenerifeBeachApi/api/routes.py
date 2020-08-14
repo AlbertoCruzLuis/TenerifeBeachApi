@@ -43,7 +43,7 @@ class Beach(Resource):
             beach_validated = beach_schema.load(beach)
         except ValidationError as err:
             return err.messages,400
-        return jsonify(fill_fields(beach_validated,True))
+        return jsonify(fill_fields(defaultdict(str,beach_validated),True))
 
     @token_required
     def delete(self, id):
