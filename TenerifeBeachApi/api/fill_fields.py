@@ -7,12 +7,14 @@ def fill_fields(data, is_id):
             'name' : data['name'],
             'location' : data['location'],
             'composition' : data['composition'],
-            'length' : data['length']
+            'length' : data['length'],
+            'image' : data['image']
         } if is_id else
         {
             'name' : data['name'],
             'location' : data['location'],
             'composition' : data['composition'],
-            'length' : data['length']
+            'length' : data['length'],
+            'image' : data['image']
         }
     )

@@ -5,6 +5,7 @@ from flask_pymongo import ObjectId
 from http import HTTPStatus
 import json
 from marshmallow import ValidationError
+from collections import defaultdict
 from ..database import db
 from . import api
 from .fill_fields import fill_fields
@@ -21,14 +22,14 @@ class BeachList(Resource):
     def get(self):
         beaches = []
         for data in db.find():
-            beaches.append(fill_fields(data,True))
+            beaches.append(fill_fields(defaultdict(str,data),True))
         return jsonify(beaches)
 
     @token_required
     def post(self):
         try:
-            beach_schema.load(fill_fields(request.json,False))
-            id = db.insert(fill_fields(request.json,False))
+            beach_schema.load(fill_fields(defaultdict(str,request.json),False))
+            id = db.insert(fill_fields(defaultdict(str,request.json),False))
         except ValidationError as err:
             return err.messages,400
         return jsonify(str(ObjectId(id)))
@@ -58,8 +59,8 @@ class Beach(Resource):
         if not ObjectId.is_valid(id):
             return {'message' : 'Error Incorrect Id'}, 400
         try:
-            beach_schema.load(fill_fields(request.json,False))
-            db.update_one({'_id' : ObjectId(id)}, {'$set' : fill_fields(request.json,False)})
+            beach_schema.load(fill_fields(defaultdict(str,request.json),False))
+            db.update_one({'_id' : ObjectId(id)}, {'$set' : fill_fields(defaultdict(str,request.json),False)})
         except ValidationError as err:
             return err.messages,400
         
